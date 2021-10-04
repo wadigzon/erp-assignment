@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React from 'react'
+import { Component } from "react";
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+import { Header } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react'
+import { getRequest } from "./utils/urlFunctions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const URL = "http://localhost:8080/getprimes/";
+
+class App extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      isLoading: false,
+      upperLimit: null,
+      listOfPrimes: undefined
+    }
+  }
+
+  sendRequest = () => {
+    const {upperLimit} = this.state;
+    const requestUrl = URL + upperLimit;
+    fetch(requestUrl).then(response => response.json)
+    .then(data => {
+      console.log(data);
+    })
+  };
+
+  handleInput = (e) => {
+    this.setState({ upperLimit: e.target.value });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header as='h1'>Get list of prime numbers</Header>
+        <Input onChange={this.handleInput} focus placeholder='Upper limit ...' />
+        <Button onClick={this.sendRequest} >Get it!</Button>
+      </div>
+    );
+
+  }
 }
 
 export default App;
