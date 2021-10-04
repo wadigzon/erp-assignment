@@ -1,4 +1,4 @@
-package com.erp.question1;
+package com.erp.assignment.question1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
