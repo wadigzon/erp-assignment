@@ -8,15 +8,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.xml.bind.ValidationException;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/getprimes")
 public class PrimeController {
-
-    @GetMapping("/getprimes/{upperBound}")
+    @CrossOrigin
+    @GetMapping("/{upperBound}")
     PrimeMessage getPrimes(@PathVariable(value="upperBound") Integer upperBound) throws ValidationException {
         if (upperBound <= EratosthenesSieveUtil.MAX_INT_REQUEST) {
             List<Integer> primes = EratosthenesSieveUtil.runEratosthenesSieve(upperBound);
