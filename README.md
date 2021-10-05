@@ -5,7 +5,7 @@ Question1
 Gets the list of prime numbers up to an input given
 
 Question2
-Adds some new Employee
+Adds new implementation for Employee
 
 Solution for Question1:
 
