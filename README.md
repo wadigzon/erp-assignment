@@ -24,6 +24,7 @@ To execute Client (Server must be running)
 - $ yarn start
 - put a number on the input field, and click on next button, you should see the list of primes (and the number of primes) displayed in a single message.
 - note that there's some validation, if the input field is empty or if there's not a numeric value there the next button (to get numbers) will not be enabled.
+- To clear the section where the list of numbers are displayed, just click clear.
 
 ## Solution for Question2:
 Source code for this solution can be found at ./question2/
