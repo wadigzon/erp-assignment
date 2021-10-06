@@ -2,7 +2,7 @@
 Repo for my assignments from ERP International LLC
 
 ## Question1
-Gets the list of prime numbers up to an input given
+Gets the list of prime numbers up to an input given (Rest API java server)
 
 ## Question2
 Adds new implementation for Employee
